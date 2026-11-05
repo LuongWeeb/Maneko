@@ -2,13 +2,16 @@
 node_modules/
 npm-debug.log*
 
-# Test artifacts and playwright snapshots (large test screenshots)
-artifacts/
+# Internal docs & planning files (not part of the website)
+doc/
+plan/
+scripts/
 
-# Figma reference exports (web uses assets/images)
+# Test artifacts and figma reference cuts
+artifacts/
 figma_exports/
 
-# System and editor files
+# System & IDE files
 .DS_Store
 Thumbs.db
 .vscode/

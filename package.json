@@ -1,21 +1,13 @@
 {
-  "name": "maneko",
+  "name": "maneko-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Maneko landing page SCSS modules",
+  "description": "Website Frontend thương hiệu Ăn vặt Maneko",
   "scripts": {
-    "dev": "node scripts/serve.cjs",
-    "test:ui": "node scripts/check-ui.cjs",
-    "test:day5": "node scripts/check-day5.cjs",
-    "test:gallery": "node scripts/check-gallery.cjs",
-    "test:effects": "node scripts/check-effects.cjs",
-    "test:parallax": "node scripts/check-parallax.cjs",
-    "test:quality": "node scripts/check-quality.cjs",
     "build:sass": "sass --style=expanded --no-source-map assets/scss/style.scss assets/css/style.css",
     "watch:sass": "sass --watch --style=expanded --no-source-map assets/scss/style.scss:assets/css/style.css"
   },
   "devDependencies": {
-    "playwright-core": "^1.64.1",
     "sass": "^1.107.1"
   }
 }
