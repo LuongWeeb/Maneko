@@ -1,0 +1,29 @@
+@use 'functions';
+
+// Mobile-first: apply from the named breakpoint upward (inclusive).
+@mixin respond-to($breakpoint) {
+  @media (min-width: functions.breakpoint($breakpoint)) {
+    @content;
+  }
+}
+
+// Apply below the named breakpoint; avoid overlap with respond-to.
+@mixin respond-below($breakpoint) {
+  @media (max-width: (functions.breakpoint($breakpoint) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin line-clamp($lines: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}

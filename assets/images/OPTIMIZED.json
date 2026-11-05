@@ -1,0 +1,86 @@
+[
+  {
+    "source": "hero-maneko-original.jpg",
+    "file": "hero-maneko-original.webp",
+    "dimensions": [
+      1900,
+      1000
+    ],
+    "quality": 90,
+    "sourceBytes": 584133,
+    "bytes": 470078,
+    "sha256": "4d041cdf25cf57f81dead3c2f920941b7c562374095cb8ba9aed9665ea82c825"
+  },
+  {
+    "source": "hero-maneko-1000.jpg",
+    "file": "hero-maneko-1000.webp",
+    "dimensions": [
+      1000,
+      526
+    ],
+    "quality": 90,
+    "sourceBytes": 228424,
+    "bytes": 189872,
+    "sha256": "4fca7d2a1eb8186b6ecad5b8354872799d0370d371374e1930c04001e1db9f7c"
+  },
+  {
+    "source": "hero-maneko-600.jpg",
+    "file": "hero-maneko-600.webp",
+    "dimensions": [
+      600,
+      316
+    ],
+    "quality": 90,
+    "sourceBytes": 99673,
+    "bytes": 86104,
+    "sha256": "97cfd4cc90d4ef5636bc7d0827bc09f83f421372ec8111df1d91569de8b6d204"
+  },
+  {
+    "source": "products-background.jpg",
+    "file": "products-background.webp",
+    "dimensions": [
+      2160,
+      1440
+    ],
+    "quality": 82,
+    "sourceBytes": 1277621,
+    "bytes": 97224,
+    "sha256": "481d69b3a41b7456bbd0855ab766807452a572aac350e2bc27dfb6d5e7de397e"
+  },
+  {
+    "source": "about-maneko.jpg",
+    "file": "about-maneko.webp",
+    "dimensions": [
+      1000,
+      741
+    ],
+    "quality": 85,
+    "sourceBytes": 246630,
+    "bytes": 161154,
+    "sha256": "987d3971c30755b1a796d2f30c2d556f1e58e1d493209cdc38f40fa01f9b342c"
+  },
+  {
+    "source": "news-3.png",
+    "file": "news-3.webp",
+    "dimensions": [
+      400,
+      218
+    ],
+    "quality": 85,
+    "sourceBytes": 266508,
+    "bytes": 29640,
+    "sha256": "f94fd4ac78313b37e067478b15030725048ea8a05447e62c2ce53b0daf88a78d"
+  },
+  {
+    "source": "news-4.png",
+    "file": "news-4.webp",
+    "dimensions": [
+      400,
+      218
+    ],
+    "quality": 85,
+    "sourceBytes": 253881,
+    "bytes": 23068,
+    "sha256": "77b1798b3efd5a2f23b83baea09996f8c4436e6c3a7dbf8ad9314d93957dc9e4"
+  }
+]

@@ -1,0 +1,198 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.hero-section {
+  background: variables.$color-cream;
+
+  &__slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y;
+
+    // Keep the carousel layout usable even if the external stylesheet fails.
+    .swiper-wrapper {
+      position: relative;
+      display: flex;
+      width: 100%;
+      box-sizing: content-box;
+      transition-property: transform, height;
+      align-items: flex-start;
+    }
+
+    .swiper-slide {
+      position: relative;
+      flex: 0 0 100%;
+      width: 100%;
+    }
+
+    .swiper-notification {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+  }
+
+  &__slide {
+    height: auto;
+    padding-bottom: 48px;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__mobile-intro {
+    padding: 24px 16px;
+    text-align: center;
+
+    h1 {
+      color: variables.$color-primary-dark;
+
+      span {
+        color: variables.$color-primary;
+      }
+    }
+  }
+
+  &__eyebrow {
+    margin-bottom: 10px;
+  }
+
+  &__banner {
+    width: 100%;
+    height: auto;
+  }
+
+  &__slide--selection {
+    background: radial-gradient(ellipse at 75% 50%, #ffe29a, variables.$color-cream 70%);
+  }
+
+  &__selection {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    height: 100%;
+    padding-block: 24px 32px;
+    text-align: center;
+  }
+
+  &__copy {
+    h2 {
+      margin-bottom: 16px;
+      color: variables.$color-primary-dark;
+
+      span {
+        color: variables.$color-primary;
+      }
+    }
+
+    > p:not(.hero-section__eyebrow) {
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+  }
+
+  &__contact {
+    margin-top: 20px;
+  }
+
+  &__selection-media {
+    width: min(64%, 300px);
+    aspect-ratio: 1;
+  }
+
+  &__selection-image {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    transform: rotate(3deg);
+    box-shadow: 0 16px 36px rgb(126 54 0 / 14%);
+  }
+
+  &__pagination.swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    bottom: 8px;
+    left: 50%;
+    width: max-content;
+    min-width: 112px;
+    height: 44px;
+    padding-inline: 12px;
+    transform: translateX(-50%);
+    border-radius: 24px;
+    background: variables.$color-cream;
+    box-shadow: 0 2px 12px rgb(74 25 0 / 8%);
+
+    &:empty {
+      display: none;
+    }
+
+    .swiper-pagination-bullet {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      opacity: 1;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 17px;
+        border-radius: 50%;
+        background: #e7b5b6;
+      }
+
+      &-active::after {
+        background: variables.$color-primary;
+        box-shadow: 0 0 0 3px variables.$color-cream, 0 0 0 4px variables.$color-primary;
+      }
+    }
+  }
+
+  @include mixins.respond-to('tablet') {
+    &__slide { padding-bottom: 0; }
+
+    &__slide--selection { aspect-ratio: 1900 / 1000; }
+
+    &__mobile-intro {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    &__selection {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      padding-block: 40px;
+      text-align: left;
+    }
+
+    &__selection-media {
+      width: min(90%, 440px);
+    }
+
+    &__copy > p:not(.hero-section__eyebrow) {
+      font-size: 1rem;
+    }
+
+    &__pagination.swiper-pagination {
+      bottom: 14px;
+      min-width: 112px;
+      height: 44px;
+    }
+  }
+}

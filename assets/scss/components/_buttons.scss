@@ -1,0 +1,57 @@
+@use 'sass:color';
+@use '../abstracts/variables';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 50px;
+  background: color.adjust(variables.$color-primary, $lightness: -3%);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 180ms ease, transform 180ms ease;
+
+  &:hover {
+    background: variables.$color-primary-dark;
+    transform: translateY(-1px);
+  }
+
+  &--quick-view {
+    border: 1px solid variables.$color-primary-dark;
+    background: #fff;
+    color: variables.$color-primary-dark;
+
+    &:hover { background: #fff0f2; }
+  }
+
+  &[hidden] { display: none; }
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: variables.$color-dark;
+  font-size: 1.125rem;
+  transition: color 180ms ease, background-color 180ms ease;
+
+  &:hover {
+    color: variables.$color-primary;
+    background: variables.$color-bg-light;
+  }
+}

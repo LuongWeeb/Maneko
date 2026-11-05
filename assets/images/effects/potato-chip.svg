@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs><linearGradient id="chip" x1="25" y1="12" x2="79" y2="89" gradientUnits="userSpaceOnUse"><stop stop-color="#fff2a6"/><stop offset=".45" stop-color="#ffd05c"/><stop offset="1" stop-color="#e79519"/></linearGradient></defs>
+  <path d="M21 22C39 5 64 6 80 25C95 43 91 69 72 84C54 98 27 86 15 69C4 52 7 36 21 22Z" fill="url(#chip)" stroke="#e7a02a" stroke-width="2"/>
+  <path d="M22 29C40 18 62 18 78 31M15 40C34 29 64 29 85 43M14 52C36 39 66 40 85 54M20 64C39 52 65 53 80 65M29 76C47 65 63 66 71 77" stroke="#d79a2b" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+  <path d="M24 23C39 13 56 13 68 20" stroke="#fff9d3" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#b97820" opacity=".5"><circle cx="31" cy="35" r="1.4"/><circle cx="65" cy="37" r="1.2"/><circle cx="45" cy="58" r="1.6"/><circle cx="64" cy="70" r="1.1"/><circle cx="23" cy="55" r="1.2"/></g>
+</svg>

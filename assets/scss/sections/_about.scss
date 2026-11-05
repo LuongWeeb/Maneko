@@ -1,0 +1,64 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.about-section {
+  padding-block: 48px;
+  scroll-margin-block-start: 24px;
+
+  @include mixins.respond-to('desktop') {
+    padding-block: 64px;
+  }
+}
+
+.about {
+  &__grid {
+    display: grid;
+    align-items: center;
+    gap: 28px;
+  }
+
+  &__content { min-width: 0; }
+
+  &__subtitle {
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: #101010;
+  }
+
+  &__title-break { display: none; }
+
+  &__description {
+    color: variables.$color-dark;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+
+    p + p { margin-top: 12px; }
+  }
+
+  &__button { margin-top: 24px; }
+
+  &__figure {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  @include mixins.respond-to('desktop') {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 40px;
+    }
+  }
+
+  @include mixins.respond-to('desktop-lg') {
+    &__title-break { display: block; }
+  }
+}

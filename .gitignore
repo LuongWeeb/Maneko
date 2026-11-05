@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Test artifacts and playwright snapshots (large test screenshots)
+artifacts/
+
+# Figma reference exports (web uses assets/images)
+figma_exports/
+
+# System and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

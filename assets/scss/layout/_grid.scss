@@ -1,0 +1,11 @@
+@use '../abstracts/mixins';
+
+.container {
+  width: calc(100% - 32px);
+  max-width: 1240px;
+  margin-inline: auto;
+
+  @include mixins.respond-to('tablet') {
+    width: calc(100% - 64px);
+  }
+}

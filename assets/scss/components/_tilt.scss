@@ -1,0 +1,80 @@
+.product-card {
+  transform-style: preserve-3d;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .product-card {
+    // Clip the shimmer without flattening the 3D descendants (as hidden would).
+    overflow: clip;
+    perspective: 1000px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+      opacity: 0;
+      transform: translateX(-100%) translateZ(32px) rotate(45deg);
+    }
+
+    &:hover::before {
+      animation: product-shimmer 0.6s ease-out;
+    }
+
+    &__link,
+    &__media {
+      transform-style: preserve-3d;
+    }
+
+    &__media {
+      // Visible overflow must not restore the image's intrinsic flex minimum.
+      min-height: 0;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    &__image {
+      border-radius: inherit;
+      transition: transform 400ms ease;
+    }
+
+    &:hover &__image {
+      transform: translateZ(28px) scale(1.05);
+    }
+
+    &__action {
+      // Keep the detail label readable above the raised image.
+      translate: 0 0 30px;
+    }
+  }
+
+  .category-card {
+    position: relative;
+    border-radius: 16px;
+    transform-style: preserve-3d;
+  }
+
+  .button--magnetic {
+    translate: var(--magnetic-x, 0px) var(--magnetic-y, 0px);
+    transition: background-color 180ms ease, transform 180ms ease, translate 180ms ease;
+
+    &:focus-visible { translate: none; }
+  }
+}
+
+@keyframes product-shimmer {
+  0% { opacity: 0; transform: translateX(-100%) translateZ(32px) rotate(45deg); }
+  15%, 70% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%) translateZ(32px) rotate(45deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card__link:hover .product-card__image,
+  .product-card__link:focus-visible .product-card__image,
+  .category-card__link:hover .category-card__image,
+  .category-card__link:focus-visible .category-card__image {
+    transform: none;
+  }
+}

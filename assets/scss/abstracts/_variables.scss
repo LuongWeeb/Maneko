@@ -1,0 +1,29 @@
+// Brand colors.
+$color-primary: #ED1C24;
+$color-primary-dark: #C8232C;
+$color-accent: #FAA61A;
+$color-dark: #333333;
+$color-gray: #777777;
+$color-bg-light: #FFF9F9;
+$color-cream: #FFFBF0;
+
+// Primary font and adjusted fallback are defined in base/_fonts.scss.
+// Dancing Script is loaded by index.html with display=swap.
+$font-main: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', Arial, sans-serif;
+$font-script: 'Dancing Script', 'Dancing Script Fallback', cursive;
+
+$breakpoint-mobile: 375px;
+$breakpoint-mobile-lg: 430px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-lg: 1366px;
+$breakpoint-desktop-xl: 1440px;
+
+$breakpoints: (
+  'mobile': $breakpoint-mobile,
+  'mobile-lg': $breakpoint-mobile-lg,
+  'tablet': $breakpoint-tablet,
+  'desktop': $breakpoint-desktop,
+  'desktop-lg': $breakpoint-desktop-lg,
+  'desktop-xl': $breakpoint-desktop-xl,
+);

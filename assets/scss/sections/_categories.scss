@@ -1,0 +1,115 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.categories-section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: 0 56px;
+  scroll-margin-block-start: 24px;
+}
+
+.categories {
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    margin-bottom: 28px;
+    color: #101010;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    max-width: 848px;
+    margin-inline: auto;
+  }
+
+  &__leaves {
+    display: none;
+    position: absolute;
+    z-index: 0;
+    width: clamp(140px, 20vw, 290px);
+    height: auto;
+    pointer-events: none;
+
+    &--left {
+      top: 48px;
+      left: -60px;
+      transform: rotate(145deg);
+    }
+
+    &--right {
+      top: 130px;
+      right: -80px;
+      transform: rotate(-18deg);
+    }
+  }
+
+  @include mixins.respond-to('tablet') {
+    &__title { margin-bottom: 36px; }
+
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 40px;
+    }
+  }
+
+  @include mixins.respond-to('desktop-lg') {
+    &__grid { gap: 64px; }
+    &__leaves { display: block; }
+  }
+}
+
+.category-card {
+  width: 100%;
+  max-width: 392px;
+  margin-inline: auto;
+  scroll-margin-block-start: 24px;
+  text-align: center;
+
+  &__link {
+    display: block;
+    border-radius: 16px;
+    text-decoration: none;
+
+    &:hover .category-card__image,
+    &:focus-visible .category-card__image {
+      transform: scale(1.045);
+    }
+
+    &:hover .category-card__title { color: variables.$color-primary-dark; }
+  }
+
+  &__frame {
+    overflow: hidden;
+    padding: 16px;
+    border-radius: 16px;
+    background: variables.$color-primary;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid #ffd66d;
+    border-radius: 12px;
+    transition: transform 220ms ease;
+  }
+
+  &__title {
+    margin-top: 16px;
+    color: #101010;
+  }
+
+  &__count {
+    margin-top: 4px;
+    color: #666;
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,78 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.carousel-shell { position: relative; min-width: 0; }
+
+.content-carousel {
+  overflow: hidden;
+  width: 100%;
+  padding: 4px;
+  touch-action: pan-y;
+
+  .swiper-wrapper {
+    display: flex;
+    box-sizing: content-box;
+    transition-property: transform;
+  }
+
+  .swiper-slide { flex-shrink: 0; min-width: 0; height: auto; }
+
+  .swiper-notification {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  &:not(.swiper-initialized) {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    .swiper-wrapper { gap: 24px; }
+    .swiper-slide { flex-basis: 100%; scroll-snap-align: start; }
+    @include mixins.respond-to('tablet') { .swiper-slide { flex-basis: calc((100% - 24px) / 2); } }
+    @include mixins.respond-to('desktop') { .swiper-slide { flex-basis: calc((100% - 48px) / 3); } }
+  }
+}
+
+.carousel-controls {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.has-carousel .carousel-controls { display: flex; }
+.carousel-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+  color: variables.$color-primary-dark;
+  &:hover { border-color: currentColor; background: variables.$color-bg-light; }
+  &:disabled { opacity: 0.4; cursor: default; }
+}
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: auto !important;
+  .swiper-pagination-bullet {
+    position: relative;
+    width: 32px;
+    height: 44px;
+    padding: 0;
+    margin: 0 !important;
+    border: 0;
+    background: transparent;
+    opacity: 1;
+    &::after { content: ''; position: absolute; width: 10px; height: 10px; top: 17px; left: 11px; border-radius: 50%; background: #ccc; }
+    &-active::after { background: variables.$color-primary; }
+  }
+}

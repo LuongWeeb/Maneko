@@ -1,0 +1,111 @@
+@use '../abstracts/mixins';
+
+.snack-scene {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+.parallax-layer {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+.snack-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.floating-snack {
+  position: absolute;
+  width: var(--snack-size, 64px);
+  aspect-ratio: 1;
+  pointer-events: none;
+
+  &__art {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--snack-image) center / contain no-repeat;
+    animation: floatSnack var(--float-duration, 4.8s) ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    animation-play-state: paused;
+  }
+
+  &--leaf {
+    --snack-image: url('../images/category-leaves.png');
+    --float-duration: 4.8s;
+    --float-delay: -1.6s;
+  }
+
+  &--chip {
+    --snack-image: url('../images/effects/potato-chip.svg');
+    --float-duration: 3.5s;
+    --float-delay: -0.7s;
+  }
+
+  &--shrimp {
+    --snack-image: url('../images/effects/crispy-shrimp.svg');
+    --float-duration: 6s;
+    --float-delay: -2.8s;
+  }
+
+  &--mascot {
+    display: none;
+    --snack-image: url('../images/effects/maneko-mascot.webp');
+    --float-duration: 6s;
+    --float-delay: -1s;
+  }
+}
+
+.hero-section {
+  > .snack-particles { z-index: 2; }
+  > .snack-particles .floating-snack--leaf { --snack-size: clamp(68px, 8vw, 120px); left: -18px; top: 5%; }
+  > .snack-particles .floating-snack--chip { --snack-size: clamp(30px, 4vw, 64px); right: 1%; top: 14%; }
+  > .snack-particles .floating-snack--shrimp { --snack-size: clamp(34px, 5vw, 76px); left: 1%; bottom: 16%; }
+  .floating-snack--mascot { --snack-size: clamp(100px, 12vw, 160px); right: 1%; bottom: 4%; z-index: 1; }
+}
+
+.products-section {
+  > .container { position: relative; z-index: 2; }
+  .floating-snack--leaf { --snack-size: clamp(80px, 13vw, 190px); left: -36px; top: 26%; }
+  .floating-snack--chip { --snack-size: clamp(48px, 8vw, 120px); right: -20px; top: 42%; }
+  .floating-snack--shrimp { --snack-size: clamp(52px, 7vw, 100px); left: -16px; bottom: 12%; }
+  .floating-snack--mascot { --snack-size: clamp(90px, 9vw, 140px); right: 0; top: 0; }
+}
+
+.products__backdrop {
+  position: absolute;
+  // Overscan covers the full 0.12 scroll offset without revealing an empty edge.
+  inset: calc(-12% - 12vh) 0;
+  z-index: 0;
+  pointer-events: none;
+  background-position: center;
+  background-size: cover;
+
+  @include mixins.respond-to('desktop') {
+    background-image: url('../images/products-background.jpg');
+    background-image: image-set(url('../images/products-background.webp') type('image/webp'), url('../images/products-background.jpg') type('image/jpeg'));
+  }
+}
+
+@include mixins.respond-to('tablet') {
+  .floating-snack--mascot { display: block; }
+}
+
+.is-parallax-active {
+  .parallax-layer { will-change: transform; }
+  .floating-snack__art { animation-play-state: running; }
+}
+
+@keyframes floatSnack {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer { transform: none; will-change: auto; }
+  .floating-snack__art { animation: none; transform: none; }
+}
