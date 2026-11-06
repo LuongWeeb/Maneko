@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body id="trang-chu">
@@ -102,6 +103,7 @@
               </picture>
             </div>
             <div class="swiper-slide hero-section__slide hero-section__slide--selection">
+              <span class="liquid-blob liquid-blob--cheese" data-ambient-motion aria-hidden="true"></span>
               <span class="floating-snack floating-snack--mascot parallax-layer" data-parallax-speed="0.06" aria-hidden="true"><span class="floating-snack__art"></span></span>
               <div class="container hero-section__selection">
                 <div class="hero-section__copy">
@@ -123,22 +125,22 @@
         <div class="container">
           <h2 class="visually-hidden" id="stats-title">Maneko qua những con số</h2>
           <dl class="stats__grid">
-            <div class="stats__item">
+            <div class="stats__item" data-aos="fade-up" data-aos-delay="0">
               <dt class="stats__label">Nhà phân phối toàn quốc</dt>
               <dd class="stats__value" data-target="80">80+</dd>
               <dd class="stats__description">Mạng lưới đối tác đồng hành, mang sản phẩm Maneko đến với khách hàng trên cả nước.</dd>
             </div>
-            <div class="stats__item">
+            <div class="stats__item" data-aos="fade-up" data-aos-delay="100">
               <dt class="stats__label">Số sản phẩm mỗi năm</dt>
               <dd class="stats__value" data-target="40000">40.000+</dd>
               <dd class="stats__description">Nhiều lựa chọn hương vị, nguồn cung ổn định để đáp ứng nhu cầu của các đối tác.</dd>
             </div>
-            <div class="stats__item">
+            <div class="stats__item" data-aos="fade-up" data-aos-delay="200">
               <dt class="stats__label">Đội ngũ nhân viên</dt>
               <dd class="stats__value" data-target="150">150+</dd>
               <dd class="stats__description">Đội ngũ tận tâm, cùng chăm chút cho từng sản phẩm và trải nghiệm của khách hàng.</dd>
             </div>
-            <div class="stats__item">
+            <div class="stats__item" data-aos="fade-up" data-aos-delay="300">
               <dt class="stats__label">Đơn hàng giao thành công</dt>
               <dd class="stats__value" data-target="4800">4.800+</dd>
               <dd class="stats__description">Chú trọng tiến độ giao hàng và chất lượng sản phẩm trong suốt quá trình vận chuyển.</dd>
@@ -147,9 +149,16 @@
         </div>
       </section>
 
+      <div class="marquee-strip" data-ambient-motion aria-hidden="true">
+        <div class="marquee-track">
+          <span>★ ĂN VẶT MANEKO ★ VUI MỖI NGÀY ★ NGON TỪNG GIÂY ★ 100% TIÊU CHUẨN ISO 22000:2018 ★ GIÒN RÚM ĐẬM VỊ ★</span>
+          <span>★ ĂN VẶT MANEKO ★ VUI MỖI NGÀY ★ NGON TỪNG GIÂY ★ 100% TIÊU CHUẨN ISO 22000:2018 ★ GIÒN RÚM ĐẬM VỊ ★</span>
+        </div>
+      </div>
+
       <section class="about-section" id="gioi-thieu" aria-labelledby="about-title" tabindex="-1">
         <div class="container about__grid">
-          <div class="about__content">
+          <div class="about__content" data-aos="fade-right" data-aos-duration="800">
             <p class="about__subtitle">Câu chuyện về</p>
             <h2 class="about__title" id="about-title">Công ty TNHH Thương mại<br class="about__title-break"> và Dịch vụ Maneko</h2>
             <div class="about__description">
@@ -158,7 +167,7 @@
             </div>
             <a class="button about__button" href="https://maneko.vn/blog/gioi-thieu">Tìm hiểu thêm<span class="visually-hidden"> về Maneko</span></a>
           </div>
-          <figure class="about__figure">
+          <figure class="about__figure" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
             <a class="gallery-link" href="assets/images/about-maneko.jpg" data-lightbox="about-gallery" data-title="Các sản phẩm ăn vặt Maneko" data-alt="Các sản phẩm phồng tôm, mì giòn, Luffy xoắn quẩy và bánh mì giòn của Maneko" aria-label="Phóng to ảnh các sản phẩm Maneko">
               <picture>
                 <source type="image/webp" srcset="assets/images/about-maneko.webp">
@@ -172,9 +181,9 @@
 
       <section class="categories-section" id="san-pham" aria-labelledby="categories-title" tabindex="-1">
         <div class="container categories__inner">
-          <h2 class="categories__title" id="categories-title">Danh mục sản phẩm</h2>
+          <h2 class="categories__title" id="categories-title" data-aos="fade-up">Danh mục sản phẩm</h2>
           <div class="categories__grid">
-            <article class="category-card" id="snack-kho" aria-labelledby="snack-kho-title" tabindex="-1">
+            <article class="category-card" id="snack-kho" aria-labelledby="snack-kho-title" tabindex="-1" data-aos="fade-right" data-aos-delay="100">
               <a class="category-card__link" href="https://maneko.vn/snake" aria-labelledby="snack-kho-title snack-kho-count">
                 <div class="category-card__frame">
                   <img class="category-card__image" src="assets/images/category-snack-kho.jpg" alt="Giỏ snack khô Maneko với phồng tôm, mì giòn, bánh mì giòn và Luffy xoắn quẩy" width="500" height="500" loading="lazy" decoding="async">
@@ -183,7 +192,7 @@
                 <p class="category-card__count" id="snack-kho-count">16 sản phẩm</p>
               </a>
             </article>
-            <article class="category-card" id="snack-uot" aria-labelledby="snack-uot-title" tabindex="-1">
+            <article class="category-card" id="snack-uot" aria-labelledby="snack-uot-title" tabindex="-1" data-aos="fade-left" data-aos-delay="200">
               <a class="category-card__link" href="https://maneko.vn/tam-cay" aria-labelledby="snack-uot-title snack-uot-count">
                 <div class="category-card__frame">
                   <img class="category-card__image" src="assets/images/category-snack-uot.jpg" alt="Giỏ snack ướt Maneko gồm tăm cay Thiên Long và snack vị bò Kobe Hoàng Kim" width="500" height="500" loading="lazy" decoding="async">
@@ -200,6 +209,7 @@
       <section class="products-section snack-scene" id="san-pham-noi-bat" aria-labelledby="products-title" tabindex="-1" data-parallax-scene>
         <div class="products__backdrop parallax-layer" data-parallax-speed="0.12" aria-hidden="true"></div>
         <div class="snack-particles" aria-hidden="true">
+          <span class="liquid-blob liquid-blob--butter" data-ambient-motion></span>
           <span class="floating-snack floating-snack--leaf parallax-layer" data-parallax-speed="0.12"><span class="floating-snack__art"></span></span>
           <span class="floating-snack floating-snack--chip parallax-layer" data-parallax-speed="-0.08"><span class="floating-snack__art"></span></span>
           <span class="floating-snack floating-snack--shrimp parallax-layer" data-parallax-speed="-0.08"><span class="floating-snack__art"></span></span>
@@ -223,8 +233,8 @@
       </section>
       <section class="testimonials-section" id="danh-gia" aria-labelledby="testimonials-title" data-carousel="reviews" tabindex="-1">
         <div class="container">
-          <h2 class="testimonials__title" id="testimonials-title">Khách hàng nói về chúng tôi</h2>
-          <div class="carousel-shell">
+          <h2 class="testimonials__title" id="testimonials-title" data-aos="fade-up">Khách hàng nói về chúng tôi</h2>
+          <div class="carousel-shell" data-aos="fade-up" data-aos-delay="150">
             <div class="swiper content-carousel" role="group" aria-label="Đánh giá khách hàng">
               <div class="swiper-wrapper">
                 <article class="swiper-slide review-card glass-panel">
@@ -273,10 +283,10 @@
       <section class="news-section" id="tin-tuc" aria-labelledby="news-title" data-carousel="news" tabindex="-1">
         <div class="container">
           <div class="news__heading">
-            <div><p class="news__eyebrow">Chúng tôi làm gì</p><h2 class="news__title" id="news-title">Tin tức và sự kiện</h2></div>
+            <div><p class="news__eyebrow">Chúng tôi làm gì</p><h2 class="news__title" id="news-title" data-aos="fade-up">Tin tức và sự kiện</h2></div>
             <p class="news__intro"><i class="fa-solid fa-quote-left" aria-hidden="true"></i>Cùng theo dõi hoạt động, sản phẩm và những câu chuyện mới từ Maneko.</p>
           </div>
-          <div class="carousel-shell news__shell">
+          <div class="carousel-shell news__shell" data-aos="fade-up" data-aos-delay="150">
             <div class="swiper content-carousel" role="group" aria-label="Tin tức Maneko">
               <div class="swiper-wrapper">
                 <article class="swiper-slide news-card">
@@ -343,28 +353,28 @@
       <section class="qa-section" id="qa" aria-labelledby="qa-title" tabindex="-1">
         <div class="container qa__inner">
           <p class="qa__eyebrow">Maneko giải đáp</p>
-          <h2 class="qa__title" id="qa-title">Hỏi &amp; Đáp</h2>
+          <h2 class="qa__title" id="qa-title" data-aos="fade-up">Hỏi &amp; Đáp</h2>
           <p class="qa__intro">Những điều bạn muốn biết trước khi chọn sản phẩm hoặc đồng hành cùng Maneko.</p>
           <div class="qa__list">
-            <article class="qa__item">
+            <article class="qa__item" data-aos="fade-up" data-aos-delay="100">
               <h3><button class="qa__question" type="button" id="qa-question-1" aria-expanded="true" aria-controls="qa-answer-1">Sản phẩm Maneko có hạn sử dụng bao lâu và bảo quản thế nào?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
               <div class="qa__answer" id="qa-answer-1" role="region" aria-labelledby="qa-question-1">
                 <p>Hạn sử dụng và hướng dẫn bảo quản phụ thuộc từng sản phẩm. Bạn hãy kiểm tra thông tin trên bao bì và làm theo hướng dẫn của nhà sản xuất, kể cả hướng dẫn sau khi mở gói. Nếu cần làm rõ thông tin của một sản phẩm, hãy <a href="#lien-he">liên hệ Maneko</a>.</p>
               </div>
             </article>
-            <article class="qa__item">
+            <article class="qa__item" data-aos="fade-up" data-aos-delay="200">
               <h3><button class="qa__question" type="button" id="qa-question-2" aria-expanded="true" aria-controls="qa-answer-2">Nhà máy sản xuất Maneko có chứng nhận gì?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
               <div class="qa__answer" id="qa-answer-2" role="region" aria-labelledby="qa-question-2">
                 <p>Theo thông tin giới thiệu của Maneko, nhà máy đạt chứng nhận ISO 22000:2018 về hệ thống quản lý an toàn thực phẩm. Bạn có thể <a href="https://maneko.vn/blog/gioi-thieu">xem giới thiệu doanh nghiệp</a> hoặc liên hệ Maneko để tìm hiểu thêm về hồ sơ chứng nhận.</p>
               </div>
             </article>
-            <article class="qa__item">
+            <article class="qa__item" data-aos="fade-up" data-aos-delay="300">
               <h3><button class="qa__question" type="button" id="qa-question-3" aria-expanded="true" aria-controls="qa-answer-3">Chính sách chiết khấu và hỗ trợ vận chuyển cho đại lý ra sao?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
               <div class="qa__answer" id="qa-answer-3" role="region" aria-labelledby="qa-question-3">
                 <p>Để nhận báo giá, mức chiết khấu và điều kiện vận chuyển phù hợp, vui lòng cung cấp khu vực kinh doanh cùng nhu cầu nhập hàng cho Maneko. Gọi <a href="tel:0399366168">0399 366 168</a> để được tư vấn trước khi đặt hàng.</p>
               </div>
             </article>
-            <article class="qa__item">
+            <article class="qa__item" data-aos="fade-up" data-aos-delay="400">
               <h3><button class="qa__question" type="button" id="qa-question-4" aria-expanded="true" aria-controls="qa-answer-4">Tôi có thể mua lẻ đồ ăn vặt Maneko ở đâu?<i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></h3>
               <div class="qa__answer" id="qa-answer-4" role="region" aria-labelledby="qa-question-4">
                 <p>Bạn có thể xem <a href="#san-pham-noi-bat">sản phẩm nổi bật</a> trên trang này và mở trang chi tiết để tìm hiểu thêm. Để hỏi điểm bán gần bạn hoặc cách đặt mua, hãy liên hệ hotline Maneko <a href="tel:0399366168">0399 366 168</a>.</p>
@@ -375,13 +385,13 @@
       </section>
 
       <section class="contact-cta" id="lien-he" aria-labelledby="contact-title" tabindex="-1">
-        <div class="container contact-cta__panel">
+        <div class="container contact-cta__panel" data-ambient-motion data-aos="zoom-in" data-aos-duration="700">
           <div class="contact-cta__content">
             <h2 class="contact-cta__title" id="contact-title">Liên hệ với chúng tôi</h2>
             <p>Cùng Maneko kết nối và hợp tác!</p>
             <div class="contact-cta__actions">
-              <a class="button" href="tel:0399366168" data-clipboard-text="0399366168" aria-label="Sao chép hotline 0399.366.168" title="Sao chép hotline"><i class="fa-solid fa-copy" aria-hidden="true"></i>0399.366.168</a>
-              <a class="button contact-cta__email" href="mailto:nhamaymaneko@gmail.com" data-clipboard-text="nhamaymaneko@gmail.com" aria-label="Sao chép email nhamaymaneko@gmail.com" title="Sao chép email"><i class="fa-solid fa-copy" aria-hidden="true"></i>nhamaymaneko@gmail.com</a>
+              <a class="button" href="tel:0399366168" data-clipboard-text="0399366168" aria-label="Sao chép hotline 0399.366.168" title="Sao chép hotline" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-copy" aria-hidden="true"></i>0399.366.168</a>
+              <a class="button contact-cta__email" href="mailto:nhamaymaneko@gmail.com" data-clipboard-text="nhamaymaneko@gmail.com" aria-label="Sao chép email nhamaymaneko@gmail.com" title="Sao chép email" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-copy" aria-hidden="true"></i>nhamaymaneko@gmail.com</a>
             </div>
           </div>
           <picture class="contact-cta__picture">
@@ -440,7 +450,7 @@
 
     <footer class="footer">
       <div class="container footer__grid">
-        <div class="footer__company">
+        <div class="footer__company" data-aos="fade-up" data-aos-delay="0">
           <a class="footer__brand" href="#trang-chu" aria-label="Maneko — về đầu trang"><img src="assets/images/logo-maneko-white.png" alt="Maneko" width="300" height="53" loading="lazy"></a>
           <p class="footer__company-name">Công ty TNHH Thương mại và Dịch vụ Maneko</p>
           <address class="footer__address">
@@ -450,14 +460,14 @@
             <p><strong>Email:</strong> <a href="mailto:nhamaymaneko@gmail.com">nhamaymaneko@gmail.com</a></p>
           </address>
         </div>
-        <nav aria-labelledby="footer-info-title">
+        <nav aria-labelledby="footer-info-title" data-aos="fade-up" data-aos-delay="100">
           <h2 class="footer__title" id="footer-info-title">Thông tin</h2>
           <ul class="footer__links">
             <li><a href="#gioi-thieu">Giới thiệu</a></li><li><a href="#san-pham">Sản phẩm</a></li>
             <li><a href="#qa">Q&amp;A</a></li><li><a href="#tin-tuc">Tin tức - Sự kiện</a></li><li><a href="#lien-he">Liên hệ</a></li>
           </ul>
         </nav>
-        <nav aria-labelledby="footer-policy-title">
+        <nav aria-labelledby="footer-policy-title" data-aos="fade-up" data-aos-delay="200">
           <h2 class="footer__title" id="footer-policy-title">Chính sách hỗ trợ</h2>
           <ul class="footer__links">
             <li><a href="https://maneko.vn/blog/huong-dan-mua-hang">Hướng dẫn mua hàng</a></li>
@@ -466,7 +476,7 @@
             <li><a href="https://maneko.vn/blog/chinh-sach-doi-tra">Chính sách đổi trả</a></li>
           </ul>
         </nav>
-        <div class="footer__social">
+        <div class="footer__social" data-aos="fade-up" data-aos-delay="300">
           <h2 class="footer__title">Fanpage</h2>
           <div class="fanpage-card">
             <img class="fanpage-card__cover" src="assets/images/hero-maneko-600.jpg" alt="" width="600" height="316" loading="lazy">
@@ -500,6 +510,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12.0.3/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- jQuery plugins and Vietnamese validation messages. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

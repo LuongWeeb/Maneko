@@ -1,0 +1,54 @@
+.contact-cta__panel,
+.liquid-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: liquidMorph 8s ease-in-out infinite;
+}
+
+.contact-cta__panel {
+  // Only the background/picture morph; text and links must not be clipped.
+  overflow: visible;
+}
+
+.contact-cta__picture {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.liquid-blob {
+  position: absolute;
+  width: clamp(160px, 24vw, 340px);
+  aspect-ratio: 1.15;
+  pointer-events: none;
+
+  &--cheese {
+    top: 6%;
+    left: 4%;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(255, 228, 137, 0.65), rgba(250, 166, 26, 0.18));
+    animation-delay: -2s;
+  }
+
+  &--butter {
+    top: 4%;
+    left: 2%;
+    background: linear-gradient(135deg, rgba(255, 242, 168, 0.75), rgba(255, 208, 92, 0.22));
+    animation-delay: -4s;
+  }
+}
+
+.hero-section__slide--selection { isolation: isolate; }
+
+.is-ambient-paused,
+.is-ambient-paused > .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes liquidMorph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 50% 60% 70% 30% / 40% 50% 60% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-cta__panel,
+  .liquid-blob { animation: none; }
+}

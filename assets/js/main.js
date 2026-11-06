@@ -1,6 +1,16 @@
 (() => {
   'use strict';
 
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80,
+      disableMutationObserver: false,
+    });
+  }
+
   const header = document.querySelector('.header');
   if (header) {
     const updateHeader = () => header.classList.toggle('header--scrolled', window.scrollY > 50);
@@ -26,9 +36,11 @@
     if (!list) return;
 
     const fragment = document.createDocumentFragment();
-    items.forEach((product) => {
+    items.forEach((product, index) => {
       const card = document.createElement('article');
       card.className = 'product-card';
+      card.setAttribute('data-aos', 'zoom-in-up');
+      card.setAttribute('data-aos-delay', `${(index % 4) * 100}`);
       card.id = `product-${product.id}`;
       card.tabIndex = -1;
 
@@ -103,6 +115,9 @@
     });
 
     list.replaceChildren(fragment);
+    if (typeof AOS !== 'undefined') {
+      AOS.refresh();
+    }
     status.hidden = items.length > 0;
     status.textContent = items.length ? '' : 'Chưa tải được danh sách sản phẩm. Bạn có thể chọn “Xem tất cả” để tiếp tục khám phá tại Maneko.';
   };
@@ -138,7 +153,40 @@
     hideClass: { popup: reducedMotion.matches ? '' : 'animate__animated animate__fadeOut' },
   });
 
-  const addToCart = (product) => {
+  const burstOrigin = (button) => {
+    if (!button) return null;
+    const bounds = button.getBoundingClientRect();
+    return {
+      x: Math.max(0, Math.min(1, (bounds.left + bounds.width / 2) / window.innerWidth)),
+      y: Math.max(0, Math.min(1, (bounds.top + bounds.height / 2) / window.innerHeight)),
+    };
+  };
+  const celebrate = (origin) => {
+    if (!origin || reducedMotion.matches || document.hidden || typeof window.confetti !== 'function') return;
+    try {
+      window.confetti({
+        origin,
+        particleCount: 30,
+        spread: 58,
+        startVelocity: 19,
+        gravity: 1.1,
+        ticks: 80,
+        scalar: 0.75,
+        colors: ['#ED1C24', '#FAA61A', '#FFD45C'],
+        zIndex: 2000,
+        disableForReducedMotion: true,
+      });
+    } catch {
+      // A cosmetic canvas failure must never interrupt cart/form success.
+    }
+  };
+  const stopConfetti = () => {
+    if (reducedMotion.matches || document.hidden) window.confetti?.reset?.();
+  };
+  reducedMotion.addEventListener('change', stopConfetti);
+  document.addEventListener('visibilitychange', stopConfetti);
+
+  const addToCart = (product, origin) => {
     cart.set(product.id, (cart.get(product.id) || 0) + 1);
     const count = [...cart.values()].reduce((sum, quantity) => sum + quantity, 0);
     cartCount.textContent = numberFormatter.format(count);
@@ -150,13 +198,14 @@
       cartCount.classList.add('animate__animated', 'animate__rubberBand');
     }
     notify('success', `Đã thêm ${product.name} vào giỏ hàng!`);
+    celebrate(origin);
   };
 
   window.jQuery('#product-list').on('click', '.button--add-cart, .button--quick-view', function () {
     const product = products.find((item) => item.id === this.dataset.id);
     if (!product) return;
     if (this.classList.contains('button--add-cart')) {
-      addToCart(product);
+      addToCart(product, burstOrigin(this));
       return;
     }
 
@@ -180,8 +229,10 @@
       confirmButtonText: 'Thêm vào giỏ',
       showCancelButton: true,
       cancelButtonText: 'Đóng',
-    }).then(({ isConfirmed }) => {
-      if (isConfirmed) addToCart(product);
+      // Capture before SweetAlert removes the button during its close animation.
+      preConfirm: () => burstOrigin(window.Swal.getConfirmButton()),
+    }).then(({ isConfirmed, value }) => {
+      if (isConfirmed) addToCart(product, value);
     });
   });
 
@@ -290,6 +341,7 @@
       },
       submitHandler(validForm, event) {
         event.preventDefault();
+        celebrate(burstOrigin(event.originalEvent?.submitter || event.submitter || validForm.querySelector('[type="submit"]')));
         window.Swal.fire({
           ...popupOptions(),
           icon: 'success',

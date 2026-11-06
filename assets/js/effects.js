@@ -111,4 +111,23 @@
   finePointer.addEventListener('change', scheduleEffects);
   reducedMotion.addEventListener('change', scheduleEffects);
   updateEffects();
+
+  // Pause decorative marquee/blob animations offscreen and in hidden tabs.
+  const ambient = [...document.querySelectorAll('[data-ambient-motion]')];
+  const visible = new Set(ambient);
+  const updateAmbient = () => ambient.forEach(element => {
+    element.classList.toggle('is-ambient-paused', document.hidden || !visible.has(element));
+  });
+  if (typeof IntersectionObserver === 'function') {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+      updateAmbient();
+    }, { rootMargin: '100px 0px' });
+    ambient.forEach(element => observer.observe(element));
+  }
+  document.addEventListener('visibilitychange', updateAmbient);
+  updateAmbient();
 })();

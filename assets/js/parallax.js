@@ -68,6 +68,10 @@
 
   const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(refresh) : null;
   const syncMotion = () => {
+    // Preferences can change while the tab is already paused/hidden.
+    if (reducedMotion.matches) {
+      scenes.forEach(scene => scene.layers.forEach(layer => layer.element.style.removeProperty('--parallax-y')));
+    }
     const nextEnabled = !reducedMotion.matches && !document.hidden;
     if (enabled === nextEnabled) return;
     enabled = nextEnabled;
@@ -84,9 +88,6 @@
       resizeObserver?.disconnect();
       cancelAnimationFrame(frame);
       frame = 0;
-      if (reducedMotion.matches) {
-        scenes.forEach(scene => scene.layers.forEach(layer => layer.element.style.removeProperty('--parallax-y')));
-      }
     }
   };
 
